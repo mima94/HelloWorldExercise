@@ -49,7 +49,7 @@ namespace HelloWorldExercise
         [Test]
         public void NegativePasswordTestCase() 
         {
-            Scenarios.InvalidPasword();
+            Scenarios.InvalidPassword();
             Actions.GetText().Contains(Configuration.message);
             Driver.Wait();
         }

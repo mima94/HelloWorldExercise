@@ -41,7 +41,7 @@ namespace HelloWorldExercise
             Driver.Wait();
         }
 
-        public static void InvalidPasword()
+        public static void InvalidPassword()
         {
             HomePageElements elements = new HomePageElements();
 
