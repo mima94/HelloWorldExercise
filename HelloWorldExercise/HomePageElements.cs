@@ -1,10 +1,5 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HelloWorldExercise
 {
@@ -16,7 +11,7 @@ namespace HelloWorldExercise
         }
 
 
-        [FindsBy(How = How.CssSelector, Using = "ul#main-menu > li > a > div")]
+        [FindsBy(How = How.XPath, Using = "/html/body/header/div[1]/nav/div[@class='flex items-center']/div[1]/a[@href='/prijava']/span[.='Prijavi se']")]
         public IWebElement prijaviSe { get; set; }
 
 
@@ -28,19 +23,19 @@ namespace HelloWorldExercise
         public IWebElement password { get; set; }
 
 
-        [FindsBy(How = How.ClassName, Using = "col-sm-6")]
+        [FindsBy(How = How.XPath, Using = "/html//form[@id='login_form']//button[@type='submit']")]
         public IWebElement logInButton { get; set; }
 
 
-        [FindsBy(How = How.Id, Using = "common_login_msg")]
+        [FindsBy(How = How.CssSelector, Using = ".rounded-md .__login-errors-text")]
         public IWebElement alertMessage { get; set; }
 
 
-        [FindsBy(How = How.ClassName, Using = "user-avatar-navbar-icon")]
+        [FindsBy(How = How.XPath, Using = "/html/body/header/div[1]/nav/div[@class='flex items-center']/div[1]/a[@href='/moj-kutak']/span[.='Moj nalog']")]
         public IWebElement logOutIcon { get; set; }
 
 
-        [FindsBy(How = How.XPath, Using = "/html//div[@id='secondary-menu']/ul//a[@href='/odjava']")]
+        [FindsBy(How = How.XPath, Using = "/html/body/header[@class='bg-white']//nav/div[@class='flex items-center']/div[1]/div/a[@href='/odjava']")]
         public IWebElement logOut { get; set; }
     }
 }

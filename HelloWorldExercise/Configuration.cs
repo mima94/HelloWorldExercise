@@ -9,8 +9,8 @@
         {
             public static class ValidCredentials
             {
-                public static string Username = "change-me";
-                public static string Password = "change-me";
+                public static string Username = "milanadavidovac94@gmail.com";
+                public static string Password = "alcatelidol2mini";
             }
 
             public static class InvalidCredentials

@@ -11,15 +11,16 @@ namespace HelloWorldExercise
         }
 
         [OneTimeSetUp]
-        public void OneTimeSetUp() 
+        public void OneTimeSetUp()
         {
-            Actions.InitializeDriver();
+            ActionsForCode.InitializeDriver();
         }
 
         [SetUp]
         public void SetUp()
         {
             Driver.driver.Navigate().GoToUrl(Configuration.url);
+            Driver.driver.Manage().Cookies.AddCookie(new Cookie("test", "cookie"));
         }
 
         [Test]
@@ -27,14 +28,14 @@ namespace HelloWorldExercise
         {
             Scenarios.ValidCredentials();
             Driver.Wait();
-            Actions.LogOut();
+            ActionsForCode.LogOut(Driver.driver);
         }
 
         [Test]
         public void NegativeTestCase() 
         {
             Scenarios.InvalidCredentials();
-            Actions.GetText().Contains(Configuration.message);
+            ActionsForCode.GetText().Contains(Configuration.message);
             Driver.Wait();
         }
 
@@ -42,7 +43,7 @@ namespace HelloWorldExercise
         public void NegativeUsernameTestCase() 
         {
             Scenarios.InvalidUsername();
-            Actions.GetText().Contains(Configuration.message);
+            ActionsForCode.GetText().Contains(Configuration.message);
             Driver.Wait();
         }
 
@@ -50,7 +51,7 @@ namespace HelloWorldExercise
         public void NegativePasswordTestCase() 
         {
             Scenarios.InvalidPassword();
-            Actions.GetText().Contains(Configuration.message);
+            ActionsForCode.GetText().Contains(Configuration.message);
             Driver.Wait();
         }
 
@@ -59,6 +60,7 @@ namespace HelloWorldExercise
         public void TearDown() 
         {
             Driver.driver.Quit();
+            Driver.driver.Dispose();
         }
     }
 }
